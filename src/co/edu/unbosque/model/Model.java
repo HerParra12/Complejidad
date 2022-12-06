@@ -24,7 +24,10 @@ public class Model {
 	 */
 	private SolitarioChino solitario;
 	
-	
+	/**
+	 * Manage the process to obtain the optimal menu that a 
+	 * given user requires. required by a given user
+	 */
 	private Nutricionista nutricionista;
 
     /**
