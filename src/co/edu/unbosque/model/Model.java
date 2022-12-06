@@ -8,6 +8,7 @@ package co.edu.unbosque.model;
  * @author Hernan Alvarado
  * @author Kevin Pinzon
  * @author Eduardo Bocanegra
+ * @author Johan Ayala
  * @since 2022
  * @version 1.0
  */
