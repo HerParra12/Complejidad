@@ -4,7 +4,12 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
- * The type Aplmain.
+ * The class that runs the program.
+ * 
+ * @author Kevin Pinzon
+ * @author Hernan Alvarado
+ * @author Jorge Yate
+ * @author Johan Ayala
  */
 public class Aplmain {
 
