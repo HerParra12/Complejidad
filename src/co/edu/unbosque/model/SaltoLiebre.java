@@ -1,9 +1,13 @@
 package co.edu.unbosque.model;
 
+/**
+ * The import that allows us to use the arraylists 
+ */
 import java.util.ArrayList;
 
 /**
  * The class that defines the jump of the hare
+ * 
  * @author Kevin Pinzon
  * @author Hernan Alvarado
  * @author Jorge Yate
@@ -11,22 +15,31 @@ import java.util.ArrayList;
  */
 public class SaltoLiebre {
 
+	/**
+	 * Variable of the class Liebre.
+	 */
 	private Liebre liebre;
+	/**
+	 * Variable of the class Tablero
+	 */
 	private Tablero tablero;
+	/**
+	 * Variable that will help to show the matriz
+	 */
 	private String[][] campo1;
 
 	/**
-	 * Instantiates a new Salto liebre.
+	 * The empty constructor of the class
 	 */
 	public SaltoLiebre() {
 	}
 
 	/**
-	 * Instantiates a new Salto liebre.
+	 * The constructor that initialize the variables of the class
 	 *
-	 * @param liebre  the liebre
-	 * @param tablero the tablero
-	 * @param campo1  the campo 1
+	 * @param liebre  The class liebre
+	 * @param tablero The class tablero
+	 * @param campo1  The variable campo 1
 	 */
 	public SaltoLiebre(Liebre liebre, Tablero tablero, String[][] campo1) {
 		super();
@@ -36,15 +49,15 @@ public class SaltoLiebre {
 	}
 
 	/**
-	 * Rellenar matriz string [ ] [ ].
+	 * This method stuffed the final matriz that will be showed to the user
 	 *
-	 * @param f   the f
-	 * @param c   the c
-	 * @param ic  the ic
-	 * @param iff the iff
-	 * @param fc  the fc
-	 * @param ff  the ff
-	 * @return the string [ ] [ ]
+	 * @param f   the number of rows
+	 * @param c   the number of columns
+	 * @param ic  the initial position of the hare at the row
+	 * @param iff the initial position of the hare column
+	 * @param fc  the final position of the hare at the row
+	 * @param ff  the final position of the hare at the column
+	 * @return The matrix stuffed
 	 */
 	public String[][] rellenarMatriz(int f, int c, int ic, int iff, int fc, int ff) {
 
@@ -66,14 +79,13 @@ public class SaltoLiebre {
 	}
 
 	/**
-	 * Casillalibre boolean.
+	 * This method verifies if a box is free
 	 *
-	 * @param c the c
-	 * @param z the z
-	 * @return the boolean
+	 * @param The last box type liebre
+	 * @param The last box type liebre
+	 * @return The result if the box is free
 	 */
 	public boolean casillalibre(Liebre c, Liebre z) {
-
 		if (z != null && !z.isLiebrepasado()) {
 			return true;
 		}
@@ -81,30 +93,26 @@ public class SaltoLiebre {
 	}
 
 	/**
-	 * Rama ypoda.
+	 * This method does the respective branch and pruning to solve the exercise
 	 *
-	 * @param tablero  the tablero
-	 * @param actual   the actual
-	 * @param camino1  the camino 1
-	 * @param p        the p
-	 * @param q        the q
-	 * @param antes    the antes
-	 * @param direcion the direcion
+	 * @param tablero  The board of the hare
+	 * @param actual   The actual box selected
+	 * @param camino1  The ways taken by the hare
+	 * @param p        The quantity of ways p
+	 * @param q        The quantity of ways q
+	 * @param antes    The position of the last movement
+	 * @param direcion The direction where the hare will go
 	 */
 	public void ramaYpoda(Tablero tablero, Liebre actual, ArrayList<Liebre> camino1, int p, int q, int antes,
 			String direcion) {
-
 		if (actual.isTermino()) {
 			tablero.mejorCamino((ArrayList<Liebre>) camino1.clone());
-
 		} else {
 			if (p != 0 && direcion.equals("q")) {
 				p--;
 				int[][] descripcion = { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 				caminoPosibles(tablero, actual, camino1, p, q, antes, "p", descripcion);
-
 			}
-
 			if (q != 0 && direcion.equals("p")) {
 				q--;
 				if (antes == 0 || antes == 2) {
@@ -115,73 +123,63 @@ public class SaltoLiebre {
 
 					int[][] descripcion = { { -1, 0 }, { 1, 0 } };
 					caminoPosibles(tablero, actual, camino1, p, q, antes, "q", descripcion);
-
 				}
 			}
-
 		}
-
 	}
 
 	/**
-	 * Camino posibles.
+	 * This method defines the possible ways that the hare can take
 	 *
-	 * @param tablero the tablero
-	 * @param actual  the actual
-	 * @param camino  the camino
-	 * @param p       the p
-	 * @param q       the q
-	 * @param antes   the antes
-	 * @param saber   the saber
-	 * @param salto   the salto
+	 * @param tablero The board of the hare
+	 * @param actual  The actual box selected
+	 * @param camino  The ways taken by the hare
+	 * @param p       The quantity of ways p
+	 * @param q       The quantity of ways q
+	 * @param antes   The position of the last movement
+	 * @param saber   The direction that the program is analyzing
+	 * @param salto   The jump that the hare will do
 	 */
 	public void caminoPosibles(Tablero tablero, Liebre actual, ArrayList<Liebre> camino, int p, int q, int antes,
 			String saber, int[][] salto) {
 		Liebre z;
 		int x;
 		int y;
-
 		for (int i = 0; i < salto.length; i++) {
 			x = actual.getX() + salto[i][0];
 			y = actual.getY() + salto[i][1];
 			z = tablero.posicionLiebre(x, y);
-
 			if (casillalibre(actual, z)) {
-
 				camino.add(z);
 				actual.setLiebrepasado(true);
 				ramaYpoda(tablero, z, camino, p, q, i, saber);
 				actual.setLiebrepasado(false);
 				camino.remove(z);
-
 			}
-
 		}
 	}
 
 	/**
-	 * Siguiente movimiento array list.
+	 * This method moves the hare to the next position
 	 *
-	 * @param f            the f
-	 * @param c            the c
-	 * @param libreiniciof the libreiniciof
-	 * @param libreinicioc the libreinicioc
-	 * @param librefinalf  the librefinalf
-	 * @param librefinalc  the librefinalc
-	 * @param p            the p
-	 * @param q            the q
-	 * @return the array list
+	 * @param f            the number of rows
+	 * @param c            the number of columns
+	 * @param libreiniciof the initial position of the hare at the row
+	 * @param libreinicioc the initial position of the hare column
+	 * @param librefinalf  the final position of the hare at the row
+	 * @param librefinalc  the final position of the hare at the column
+	 * @param p            The quantity of ways p
+	 * @param q            The quantity of ways q
+	 * @return An arraylist that saves the movements of the hare
 	 */
 	public ArrayList<Liebre> siguienteMovimiento(int f, int c, int libreiniciof, int libreinicioc, int librefinalf,
 			int librefinalc, int p, int q) {
 		Liebre[][] campo = new Liebre[f + 2][c + 2];
-
 		for (int i = 1; i < (campo.length - 1); i++) {
 			for (int j = 1; j < (campo.length - 1); j++) {
 				campo[i][j] = new Liebre(i, j);
 			}
 		}
-
 		campo[librefinalf][librefinalc].setTermino(true);
 		ArrayList<Liebre> camino = new ArrayList<>();
 		int pCamino = p;
@@ -191,21 +189,20 @@ public class SaltoLiebre {
 		camino.add(campo[libreiniciof][libreinicioc]);
 		ramaYpoda(trayectoria, campo[libreiniciof][libreinicioc], camino, pCamino, qCaminos, anterior, "q");
 		return trayectoria.getCamino();
-
 	}
 
 	/**
-	 * Solucion array list.
+	 * This method sends the final matrix of the route that the hare took, to show it to the user
 	 *
-	 * @param f            the f
-	 * @param c            the c
-	 * @param libreiniciof the libreiniciof
-	 * @param libreinicioc the libreinicioc
-	 * @param librefinalf  the librefinalf
-	 * @param librefinalc  the librefinalc
-	 * @param p            the p
-	 * @param q            the q
-	 * @return the array list
+	 * @param f            the number of rows of the matrix
+	 * @param c            the number of columns of the matrix
+	 * @param libreiniciof the initial position of the hare at the row
+	 * @param libreinicioc the initial position of the hare column
+	 * @param librefinalf  the final position of the hare at the row
+	 * @param librefinalc  the final position of the hare at the column
+	 * @param p            The quantity of ways at p
+	 * @param q            The quantity of ways at q
+	 * @return An Array that saves the view of the route of the hare
 	 */
 	public ArrayList<String[][]> Solucion(int f, int c, int libreiniciof, int libreinicioc, int librefinalf,
 			int librefinalc, int p, int q) {
@@ -215,9 +212,7 @@ public class SaltoLiebre {
 			camino.add(rellenarMatriz(f + 2, c + 2, lp.get(i).getX(), lp.get(i).getY(), librefinalf, librefinalc));
 
 		}
-
 		return camino;
-
 	}
 
 	/**
