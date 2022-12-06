@@ -1,13 +1,35 @@
 package co.edu.unbosque.model;
 
 /**
- * The type Liebre.
+ * Saves the data performed by the free, whether its positioning 
+ * between the row x column, its current status current state.
+ * 
+ * @author Hernan Alvarado
+ * @author Kevin Pinzon
+ * @author Eduardo Bocanegra
+ * @since 2022
+ * @version 1.0
  */
 public class Liebre {
 
+	/**
+	 * Indice de la fila en la que se encuentra.
+	 */
 	private int x;
+	
+	/**
+	 * Determina si el proceso fue realizados exitosamente o no.
+	 */
 	private boolean termino;
+	
+	/**
+	 * Indice de la columa en la que se encuentra.
+	 */
 	private int y;
+	
+	/**
+	 * Determina si una determinada posicion ya se ha tenido en cuenta.
+	 */
 	private boolean liebrepasado;
 
     /**
@@ -94,11 +116,9 @@ public class Liebre {
      * @param y the y
      */
     public Liebre(int x, int y) {
-
 		this.x = x;
 		this.y = y;
 		this.liebrepasado = false;
 		this.termino = false;
-
 	}
 }

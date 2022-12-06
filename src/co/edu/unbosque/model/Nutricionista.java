@@ -1,17 +1,26 @@
 package co.edu.unbosque.model;
-
 import java.util.Arrays;
 
 /**
- * The type Nutricionista.
+ * Manage the process to obtain the optimal menu that a 
+ * given user requires. required by a given user.
+ * 
+ * @author Hernan Alvarado
+ * @author Kevin Pinzon
+ * @author Eduardo Bocanegra
+ * @since 2022
+ * @version 1.0
  */
 public class Nutricionista {
+	
 	/**
-	 * Optimo menu string.
+	 * Determine the optimal menu according to the calories and the minimum amount 
+	 * of calories that the menu should meet and the calories of each dish that is 
+	 * present.
 	 *
-	 * @param calories the calories
-	 * @param calorie  the calorie
-	 * @return the string
+	 * @param calories array containing the calories of the dishes
+	 * @param calorie  minimum calories to be met
+	 * @return the string the minimum calories determined and the dishes that meet those calories
 	 */
 	public String optimoMenu(int calories [], int calorie){
 		Arrays.sort(calories);
@@ -54,7 +63,13 @@ public class Nutricionista {
 		return caloriasOptimas;
 	}
 	
-	
+	/**
+	 * 
+	 * @param chars array containing the names of the dishes
+	 * @param calories array containing the amount of calories in the menu
+	 * @param letter represents the plate being used
+	 * @return calories in relation to the dish
+	 */
 	private int valueInt(String chars [], int calories [], String letter) {
 		for(int i = 0; i < calories.length; i++)
 			if(chars[i].equalsIgnoreCase(letter))
@@ -62,6 +77,14 @@ public class Nutricionista {
 		return -1;
 	}
 
+	/**
+	 * Create a relationship between the names of the dishes and their respective calories.
+	 * 
+	 * @param letter array containing the names of the dishes
+	 * @param calories array containing the amount of calories in the menu
+	 * @param value integer value with respect to the plate used
+	 * @return string representing the integer value
+	 */
 	private String imprimir(String letter [], int calories [], int value) {
 		for(int i = 0; i < calories.length; i++)
 			if(calories[i] == value) 
@@ -69,6 +92,12 @@ public class Nutricionista {
 		return "";
 	}
 	
+	/**
+	 * create name whose length is equal to the array of calories entered
+	 * 
+	 * @param length of the array containing the names of the dishes
+	 * @return name array
+	 */
 	private String [] values(int length) {
 		String chars [] = new String [length];
 		for(int i = 0; i < chars.length; i++)

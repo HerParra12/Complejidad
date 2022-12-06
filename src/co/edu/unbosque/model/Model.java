@@ -1,17 +1,30 @@
 package co.edu.unbosque.model;
 
 
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
-
 /**
- * The type Model.
+ * Assembler class that allows you to block and integrate the classes 
+ * that resolve a given exercise of the {@link co.edu.unbosque.model}.
+ * 
+ * @author Hernan Alvarado
+ * @author Kevin Pinzon
+ * @author Eduardo Bocanegra
+ * @since 2022
+ * @version 1.0
  */
 public class Model {
+	
+
+	/**
+	 * The type Salto liebre.
+	 */
 	private SaltoLiebre saltoLiebre;
+	
+	/**
+	 * The type Solitario chino.
+	 */
 	private SolitarioChino solitario;
+	
+	
 	private Nutricionista nutricionista;
 
     /**
@@ -112,6 +125,4 @@ public class Model {
     public void setNutricionista(Nutricionista nutricionista) {
 		this.nutricionista = nutricionista;
 	}
-	
-	
 }
