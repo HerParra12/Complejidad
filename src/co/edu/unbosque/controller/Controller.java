@@ -1,5 +1,7 @@
 package co.edu.unbosque.controller;
-
+/**
+ * The import that allows us to use the arraylists 
+ */
 import java.util.ArrayList;
 
 import co.edu.unbosque.model.Liebre;
@@ -9,27 +11,33 @@ import co.edu.unbosque.model.SolitarioChino;
 import co.edu.unbosque.view.View;
 
 /**
- * The type Controller.
+ * The class that joins the model with the view. Besides, it validates the inputs
+ * 
+ * @author Kevin Pinzon
+ * @author Hernan Alvarado
+ * @author Jorge Yate
+ * @author Johan Ayala
  */
 public class Controller {
-	private View vista;
-	private Model modelo;
-
-
 	/**
-	 * Instantiates a new Controller.
+	 * Variable of the class View
+	 */
+	private View vista;
+	/**
+	 * Variable of the class Model
+	 */
+	private Model modelo;
+	/**
+	 * The constructor of the class. Instantiates the Controlled and its attributes
 	 */
 	public Controller() {
-
 		vista = new View();
 		modelo = new Model();
-
-
 		funcionar();
 	}
 
 	/**
-	 * Funcionar.
+	 * The method where the model and the view are joined, it shows the step by step of the software
 	 */
 	public void funcionar() {
 
@@ -54,9 +62,8 @@ public class Controller {
 				}while(caloriasMinimas < 1);
 				vista.mostrarmensaje(modelo.getNutricionista().optimoMenu(numeros, caloriasMinimas));
 				break;
+				
 			case 2:
-
-
 				vista.mostrarmensaje("Tablero Inicial\n" + modelo.leerMatriz(modelo.getSolitario().crearTablero()));
 				modelo.getSolitario().crearTablero();
 				int filaSolitario = vista.leerDato("Seleccione la fila donde desea colocar el espacio vacio");
@@ -75,24 +82,15 @@ public class Controller {
 								+ "Tenga en cuenta las caracteristicas del tablero");
 
 					} else {
-
 						vista.mostrarmensaje(modelo
 								.leerMatriz(modelo.getSolitario().posicionarFicha(filaSolitario, columnaSolitario)));
-
 						vista.mostrarmensaje(modelo
 								.leerMatriz(modelo.getSolitario().posicionarFicha2(filaSolitario, columnaSolitario)));
 
-						
-						
 					}
-					
 				}
-
-
 				break;
-
 			case 3:
-
 				int fila = vista.leerDato("Digite el número de las filas");
 				int columna = vista.leerDato("Digite el número de las columnas");
 				int x = vista.leerDato("Digite el X inicial");

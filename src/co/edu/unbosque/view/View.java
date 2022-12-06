@@ -1,58 +1,55 @@
 package co.edu.unbosque.view;
-
-import java.util.Scanner;
-
+/**
+ * The import that allows us to use an joptionpane
+ */
 import javax.swing.JOptionPane;
 
 /**
- * The type View.
+ * The class that shows all the visual asspects to the user.
+ * @author Kevin Pinzon
+ * @author Hernan Alvarado
+ * @author Jorge Yate
+ * @author Johan Ayala
  */
 public class View {
-	
+	/**
+	 * Variable that will help to validate the inputs of the messages
+	 */
 	private int select;
-
-
 	/**
 	 * Instantiates a new View.
 	 */
 	public View() {
-	
 		select=-1;
-		
 	}
 
 	/**
-	 * Leer dato int.
+	 * This method reads and validate the input of an int value
 	 *
-	 * @param mensaje the mensaje
-	 * @return the int
+	 * @param mensaje The message that will be showed to the user
+	 * @return the The value that the user registered at the input, type int
 	 */
 	public  int leerDato(String mensaje) {
 		int respuesta=0;
 		try {
-			
-		
 		String instruccion=JOptionPane.showInputDialog(mensaje);
 		respuesta=Integer.parseInt(instruccion);
-	
 		}catch(Exception e) {
 			JOptionPane.showMessageDialog(null, "Digite un numero");
 			respuesta =leerDato(mensaje);
-			
 		}
 		return respuesta;
 	}
 
 	/**
-	 * Leerdo double.
+	 * This method reads and validate the input of an double value
 	 *
-	 * @param mensaje the mensaje
-	 * @return the double
+	 * @param mensaje The message that will be showed to the user
+	 * @return The value that the user registered at the input, type double
 	 */
 	public double leerdo(String mensaje) {
 		double respuesta=0;
 		try {
-		
 		String instruccion=JOptionPane.showInputDialog(mensaje);
 		respuesta=Double.parseDouble(instruccion);
 		}catch(Exception e) {
@@ -62,19 +59,19 @@ public class View {
 	}
 
 	/**
-	 * Mostrarmensaje.
+	 * This method shows to the user any type of message, through an joptionpane
 	 *
-	 * @param mensaje the mensaje
+	 * @param mensaje The message that will be showed
 	 */
 	public void mostrarmensaje(String mensaje) {
 		JOptionPane.showMessageDialog(null, mensaje);
 	}
 
 	/**
-	 * Leer dato string string.
+	 * This method reads and validate the input of an string value
 	 *
-	 * @param instruccion the instruccion
-	 * @return the string
+	 * @param instruccion The message that will be showed to the usern
+	 * @return The string that the user registered
 	 */
 	public String leerDatoString(String instruccion) {
 		String respuesta = "";
@@ -83,32 +80,24 @@ public class View {
 	}
 
 	/**
-	 * Leer dato menu int.
+	 * This method shows and validates the initial menu.
 	 *
-	 * @return the int
+	 * @return The option (validated) that the user selected
 	 */
 	public int leerDatoMenu() {
 		int respuesta =0;
 		try {
-	
 		String mensaje = JOptionPane.showInputDialog("Digite que ejercicio quiere hacer:"
 				+"\n1. Nutricionista"
 				+"\n2. Solitario continental"
 				+"\n3. Salto liebre"
-				
-			
 				+"\n0. Salir");
 		respuesta = Integer.parseInt(mensaje);
-	
 		}catch (Exception e){
 			JOptionPane.showMessageDialog(null, "Digite de nuevo una opcion valida");
 			respuesta=leerDatoMenu();
-		
-			
-			
 		}
 		return respuesta;
-		
 	}
 
 	/**
