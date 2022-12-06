@@ -1,13 +1,20 @@
 package co.edu.unbosque.model;
-
 /**
- * The type Par.
+ * The class that takes the number Par for the possible movement of the solitarie
+ * @author Kevin Pinzon
+ * @author Hernan Alvarado
+ * @author Jorge Yate
+ * @author Johan Ayala
  */
 public class Par {
-	
+	/**
+	 * Variable to select the movement in the letter x
+	 */
 	private int x;
+	/**
+	 * Variable to select the movement in the letter y
+	 */
 	private int y;
-
 	/**
 	 * Gets x.
 	 *
@@ -16,7 +23,6 @@ public class Par {
 	public int getX() {
 		return x;
 	}
-
 	/**
 	 * Sets x.
 	 *
@@ -25,7 +31,6 @@ public class Par {
 	public void setX(int x) {
 		this.x = x;
 	}
-
 	/**
 	 * Gets y.
 	 *
@@ -34,7 +39,6 @@ public class Par {
 	public int getY() {
 		return y;
 	}
-
 	/**
 	 * Sets y.
 	 *
@@ -43,8 +47,4 @@ public class Par {
 	public void setY(int y) {
 		this.y = y;
 	}
-
-	
-	
-
 }

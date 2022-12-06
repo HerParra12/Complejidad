@@ -3,7 +3,11 @@ package co.edu.unbosque.model;
 import java.util.ArrayList;
 
 /**
- * The type Salto liebre.
+ * The class that defines the jump of the hare
+ * @author Kevin Pinzon
+ * @author Hernan Alvarado
+ * @author Jorge Yate
+ * @author Johan Ayala
  */
 public class SaltoLiebre {
 

@@ -1,12 +1,24 @@
 package co.edu.unbosque.model;
 
 /**
- * The type Salto.
+ * The class to give the jump of the empty space
+ * @author Kevin Pinzon
+ * @author Hernan Alvarado
+ * @author Jorge Yate
+ * @author Johan Ayala
  */
 public class Salto {
-	
+	/**
+	 * Variable that defines the initial position
+	 */
 	private Par origen;
+	/**
+	 * Variable that defines the final position of the empty space
+	 */
 	private Par destine;
+	/**
+	 * Variable that defines the token that will be eaten
+	 */
 	private Par comida;
 
 	/**
