@@ -1,13 +1,24 @@
 package co.edu.unbosque.model;
-
+/**
+ * Este import nos sirve para utilizar un arraylist
+ */
 import java.util.ArrayList;
 
 /**
- * The type Tablero.
+ * Esta clase es que llena el tablero con y lo va guardando
+ * @author Kevin Pinzon
+ * @author Hernan Alvarado
+ * @author Jorge Yate
+ * @author Johan Ayala
  */
 public class Tablero {
-	
+	/**
+	 * Variable campoliebre es de tipo liebre[][] es cual es la posicion de la liebre
+	 */
 	private Liebre[][] campoliebre;
+	/**
+	 * Variable es la que nos guarda el camino de la liebre
+	 */
 	private ArrayList<Liebre> camino;
 
 	/**
@@ -84,7 +95,7 @@ public class Tablero {
 	}
 
 	/**
-	 * Mejor camino.
+	 * Este metodo nos guardar el mejor camino posible
 	 *
 	 * @param camino1 the camino 1
 	 */
@@ -95,23 +106,4 @@ public class Tablero {
 	
 		
 	}
-
-	/**
-	 * Mostrar caminos string.
-	 *
-	 * @return the string
-	 */
-	public String mostrarCaminos() {
-		String camino1 = "";
-		camino1 += "Minimo de saltos: " + (camino.size() - 1);
-		for (Liebre c : camino) {
-			camino1 += "\n" + c;
-		}
-		return camino1;
-
-	}
-
-
-	
-
 }

@@ -1,10 +1,18 @@
 package co.edu.unbosque.model;
 
 /**
- * The type Solucion.
+ * Esta clase es la que muestra solucion y ademas implementa la clase salto
+ * @author Kevin Pinzon
+ * @author Hernan Alvarado
+ * @author Jorge Yate
+ * @author Johan Ayala
  */
 public class Solucion {
 	
+
+	/**
+	 * Variable s es de tipo salto la cual nos dice su origen y demas
+	 */
 	private Salto[] s;
 
 	/**
@@ -34,7 +42,4 @@ public class Solucion {
 		super();
 		this.s = s;
 	}
-	
-	
-
 }
